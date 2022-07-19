@@ -82,6 +82,9 @@ with st.expander(label='Average Total Bill', expanded=True):
     avg_total_bill.fillna(0,inplace=True)
     
     # visual
+    fig = px.bar(df,x="day", y="total_bill")
+    t2.plotly_chart(fig)
+
     fig, ax = plt.subplots()
     avg_total_bill.plot(kind='bar',ax=ax,stacked=stacked)
     ax.legend(loc='center left',bbox_to_anchor=(1.0,0.5))
@@ -93,10 +96,15 @@ with st.expander(label='Average Total Bill', expanded=True):
   
 with st.expander(label='Male & Female Distributions', expanded=False):      
      value_counts = df['gender'].value_counts()
-     col1, col2 = st.columns(2)
+     col1, col2  = st.tabs(["Total Distribution", "Distribution Count"])
      with col1:
-      fig,ax = plt.subplots()
-      ax.pie(value_counts,autopct='%0.2f%%',labels=['Male','Female'])
-      col1.pyplot(fig)
+          fig = px.pie(value_counts, values=value_counts, names=['Male','Female'])
+          col1.plotly_chart(fig)
      with col2:
         col2.dataframe(value_counts)
+
+with st.expander(label='Tip', expanded=False): 
+    fig = px.pie(df, values='tip', names='day')
+    st.plotly_chart(fig)
+   
+ 
