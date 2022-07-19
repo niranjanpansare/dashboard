@@ -1,4 +1,3 @@
-from turtle import color, width
 import streamlit as st 
 from PIL import Image
 import pandas as pd 
