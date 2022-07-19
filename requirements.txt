@@ -1,0 +1,15 @@
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+plotly
+altair
+bokeh
+pillow
+opencv-python
+openpyxl
+xlrd
+pandas-profiling
+streamlit-pandas-profiling
